@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 
 <head>
-    
-    <center>
-
-    </center>
 
 </head>
 
 <body>
 
-    <center>
-        <span style="font-family:Arial">
-            <br>
-            <br>
-            <h1>This is a test.</h1>
-            <br>
-            <br>
-        </span>
-    </center>
+    <label id="welcomeText">
+    </label>
 
+    <script>
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function replaceLabel(text) {
+            document.getElementById('welcomeText').innerHTML = text;
+        }
+
+        async function replaceLoop() {
+
+            var welcomeArr = ["welcome", "to", "the", "website", "-"]
+
+            while (true) {
+                for (i = 0; i < welcomeArr.length; i++) {
+                    replaceLabel("<center><h1>" + welcomeArr[i] + "</h></center>");
+                    await sleep(600);
+                }
+            }
+        }
+
+        replaceLoop()
+
+    </script>
+
+    <center>This is just a test site for now</center>
 </body>
