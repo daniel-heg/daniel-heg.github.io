@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        table,
+        th,
+        td {
+            border: 5px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            padding: 50px;
+            table-layout: fixed;
+            width: 75px;
+            height: 75px;
+        }
+    </style>
+</head>
+
+<body>
+    <label id="bingoFeld"></label>
+
+    <script>
+
+
+        function replaceLabel(text) {
+            document.getElementById('bingoFeld').innerHTML = text
+        }
+
+        function genBingoTabelle(file) {
+            tabelle = ["Royalty",
+                "Religion",
+                "Wetter",
+                "Sex, Drugs, Rock\'n Roll",
+                "two, too, to",
+                "John, Paul, George, Ringo",
+                "Erde, Wasser, Feuer, Luft",
+                "Farben",
+                "Essen",
+                "Cuntry / Bluegrass",
+                "Originalversion",
+                "Lied, zu dem ich stehend mitgesungen habe",
+                "Banjo / Sitar / Mundharmonika",
+                "Lied, zu dem ich getanzt habe",
+                "Lied, zu dem ich ein Bild gemalt habe",
+                "Lied, das nach einem Film benannt ist",
+                "Rumba / Raggaton / Oompah / Polka",
+                "3/4 Takt",
+                "Transportation",
+                "Himmel",
+                "nicht Deutsch oder Englisch",
+                "ein deutsches Lied",
+                "Körperteile",
+                "Gaga, Gogo, GooGoo",
+                "Bläser / Streicher",
+                "Walzer / Tango",
+                "Pflanzen"]
+
+            tabelle = shuffleArray(tabelle)
+            tabelle[12] = "Eine Coverversion"
+
+            return tabelle
+        }
+
+        function shuffleArray(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+
+            return array
+        }
+
+        function genBingo() {
+
+            getFields()
+
+            var tabelle = genBingoTabelle("bingoFelder.txt")
+            var out = "<center><table>"
+            var counter = 0
+
+            for (i = 0; i < 5; i++) {
+
+                out += "<tr>"
+
+                for (j = 0; j < 5; j++) {
+                    out += "<td>" + tabelle[counter++] + "</td>"
+                }
+
+                out += "</tr>"
+            }
+
+            out += "</table></center>"
+
+            replaceLabel(out)
+
+        }
+
+        genBingo()
+
+    </script>
+
+
+
+</body>
