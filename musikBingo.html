@@ -14,9 +14,9 @@
             text-align: center;
             vertical-align: center;
             table-layout: fixed;
-            padding: 30px 30px 30px 30px;
-            width: 100px;
-            height: 100px;
+            padding: 20px 20px 20px 20px;
+            width: 128px;
+            height: 128px;
         }
 
         button {
@@ -40,10 +40,8 @@
     <script>
 
         window.onload = function () {
-            document.getElementById("refresh")
-                .onclick = genBingo;
-        };
-
+            document.getElementById("refresh").onclick = genBingo;
+        }
 
         function replaceLabel(text) {
             document.getElementById('bingoFeld').innerHTML = text
@@ -51,37 +49,55 @@
 
         function genBingoTabelle(file) {
             tabelle = [
-                "Royalty",
-                "Religion",
-                "Wetter",
+                "Stairway to Heaven",
+                "Britney, Kylie oder Madonna Cover Version",
+                "Beatles Cover Version",
+                "ABBA Cover Version",
+                "Ein instrumental Lied",
+                "Eine Original Version",
+                "\"Blood\", \"Sweat\" oder \"Tears\"",
+                "\"Planes\", \"Trains\" oder \"Automobiles\"",
+                "\"Month\" oder \"Day\"",
+                "\"Fruit\" oder \"Flower\"",
+                "\"Rain\"",
+                "\"Clothing\"",
+                "\"Night\"",
                 "Sex, Drugs, Rock\'n Roll",
                 "two, too, to",
                 "John, Paul, George, Ringo",
-                "Erde, Wasser, Feuer, Luft",
-                "Farben",
-                "Essen",
-                "Cuntry / Bluegrass",
-                "Originalversion",
+                "Gleiches Wort mehr als einmal im Titel",
+                "Banjo, Sitar oder Mundharmonika",
                 "Lied, zu dem ich stehend mitgesungen habe",
-                "Banjo / Sitar / Mundharmonika",
+                "Lied, gesungen von Tom Jones",
+                "Lied mit einem \"Instrument\" im Titel",
+                "Lied im Cuntry oder Bluegrass Stil",
+                "Lied mit einer Frage im Titel",
+                "Lied, mit einer Stadt im Titel",
                 "Lied, zu dem ich getanzt habe",
                 "Lied, zu dem ich ein Bild gemalt habe",
                 "Lied, das nach einem Film benannt ist",
-                "Rumba / Raggaton / Oompah / Polka",
+                "Rumba, Raggaton, Oompah oder Polka",
+                "Reggae oder Ska",
+                "Walzer oder Tango",
                 "3/4 Takt",
+                "Erde, Wasser, Feuer, Luft",
+                "Farben",
+                "Essen",
                 "Transportation",
                 "Himmel",
+                "Pflanzen",
+                "Royalty",
+                "Religion",
+                "Wetter",
                 "nicht Deutsch oder Englisch",
                 "ein deutsches Lied",
                 "Körperteile",
                 "Gaga, Gogo, GooGoo",
-                "Bläser / Streicher",
-                "Walzer / Tango",
-                "Pflanzen"
+                "Bläser oder Streicher"
             ]
 
             tabelle = shuffleArray(tabelle)
-            tabelle[12] = "Eine Coverversion"
+            tabelle[12] = "<h2><b>Eine Cover Version</b></h2>"
 
             return tabelle
         }
