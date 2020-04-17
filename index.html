@@ -2,37 +2,88 @@
 
 <head>
 
+    <link rel="stylesheet" type="text/css" href="utils/style.css">
+    <style>
+        body {
+            text-align: center;
+            color: white;
+            right: 50%;
+            bottom: 50%;
+
+            transform: translate(50%, 50%);
+            position: absolute;
+            border: 3px solid black;
+
+            width: 25%;
+            height: 25%;
+
+            background: linear-gradient(45deg, #eec552, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 300% 300%;
+            animation: gradient 15s linear infinite;
+        }
+
+        .btn {
+            background-color: inherit;
+            border: 1px solid white;
+            color: white;
+            font-weight: bold;
+            width: 25%;
+        }
+
+        a {
+            color: white;
+        }
+
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            25% {
+                background-position: 100% 0%;
+            }
+
+            50% {
+                background-position: 100% 100%;
+            }
+
+            75% {
+                background-position: 0% 100%;
+            }
+
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
 
+    <br>
     <label id="welcomeText"></label>
+    <br>
+    <button onclick="location.href='musikBingo.html'" type="button" id="musikBingoButton" class="btn">Musik
+        Bingo</button>
+    <!-- <button onclick="" type="button" id="button1" class="btn">No Function Button 1</button>
+    <button onclick="" type="button" id="button2" class="btn">No Function Button 2</button>
+    <button onclick="" type="button" id="button3" class="btn">No Function Button 3</button>
+    <button onclick="" type="button" id="button4" class="btn">No Function Button 4</button>
+    <button onclick="" type="button" id="button5" class="btn">No Function Button 5</button> -->
+    <br>
+
+
+    <script src="utils/helper.js"></script>
 
     <script>
 
-        function sleep(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }
-
-        function replaceLabel(text) {
-            document.getElementById('welcomeText').innerHTML = text;
-        }
-
-        async function replaceLoop() {
-
-            var welcomeArr = ["welcome", "to", "the", "website", "-"]
-
-            while (true) {
-                for (i = 0; i < welcomeArr.length; i++) {
-                    replaceLabel("<center><h1>" + welcomeArr[i] + "</h></center>");
-                    await sleep(600);
-                }
-            }
-        }
-
-        replaceLoop()
+        replaceLoop("welcomeText", 600, ["_", "<br>", "_", "<br>", "welcome", "to", "the", "website", "<br>", "_", "<br>", "_", "<br>"])
 
     </script>
 
-    <center><h2><br><a href="musikBingo.html">Zu Musikbingo</a></h2></center>
+    <div class="footer">
+        Daniel Hegedüs - <a href="https://github.com/daniel-heg">GitHub</a>
+    </div>
 </body>
