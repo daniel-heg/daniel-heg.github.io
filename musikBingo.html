@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 
 <head>
-    <style>
-        body {
-            font: bold 15px Arial;
-        }
 
+    <link rel="stylesheet" type="text/css" href="utils/style.css">
+    <style>
         table,
         th,
         td {
-            border: 3px solid black;
-            border-collapse: collapse;
             text-align: center;
             vertical-align: center;
             table-layout: fixed;
@@ -20,124 +16,29 @@
         }
 
         button {
-            border: 3px solid black;
-            background-color: white;
-            display: block;
-            margin: 2em;
             width: 150px;
             height: 50px;
-
         }
     </style>
+
 </head>
 
 <body>
+
     <center>
+
         <label id="bingoFeld"></label>
-        <button type="button" id="refresh">1€ Bitte</button>
+        <button type="button" id="refreshButton">1€ Bitte</button>
+
     </center>
+
+    <script src="utils/helper.js"></script>
+    <script src="utils/bingo.js"></script>
 
     <script>
 
-        window.onload = function () {
-            document.getElementById("refresh").onclick = genBingo;
-        }
-
-        function replaceLabel(text) {
-            document.getElementById('bingoFeld').innerHTML = text
-        }
-
-        function genBingoTabelle(file) {
-            tabelle = [
-                "Stairway to Heaven",
-                "Britney, Kylie oder Madonna Cover Version",
-                "Beatles Cover Version",
-                "ABBA Cover Version",
-                "Ein instrumental Lied",
-                "Eine Original Version",
-				"Eine Akustik Version",
-                "\"Blood\", \"Sweat\" oder \"Tears\"",
-                "\"Planes\", \"Trains\" oder \"Automobiles\"",
-                "\"Month\" oder \"Day\"",
-                "\"Fruit\" oder \"Flower\"",
-                "\"Rain\"",
-                "\"Clothing\"",
-                "\"Night\"",
-                "Sex, Drugs, Rock\'n Roll",
-                "two, too, to",
-                "John, Paul, George, Ringo",
-                "Gleiches Wort mehr als einmal im Titel",
-                "Banjo, Sitar oder Mundharmonika",
-                "Lied, zu dem ich stehend mitgesungen habe",
-                "Lied, gesungen von Tom Jones",
-                "Lied mit einem \"Instrument\" im Titel",
-                "Lied im Cuntry oder Bluegrass Stil",
-                "Lied mit einer Frage im Titel",
-                "Lied, mit einer Stadt im Titel",
-                "Lied, zu dem ich getanzt habe",
-                "Lied, zu dem ich ein Bild gemalt habe",
-                "Lied, das nach einem Film benannt ist",
-                "Rumba, Raggaton, Oompah oder Polka",
-                "Reggae oder Ska",
-                "Walzer oder Tango",
-                "3/4 Takt",
-                "Erde, Wasser, Feuer, Luft",
-                "Farben",
-                "Essen",
-                "Transportation",
-                "Himmel",
-                "Pflanzen",
-                "Royalty",
-                "Religion",
-                "Wetter",
-                "nicht Deutsch oder Englisch",
-                "ein deutsches Lied",
-                "Körperteile",
-                "Gaga, Gogo, GooGoo",
-                "Bläser oder Streicher"
-            ]
-
-            tabelle = shuffleArray(tabelle)
-            tabelle[12] = "<h2><b>Eine Cover Version</b></h2>"
-
-            return tabelle
-        }
-
-        function shuffleArray(array) {
-            for (var i = array.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                var temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
-
-            return array
-        }
-
-        function genBingo() {
-
-            var tabelle = genBingoTabelle("bingoFelder.txt")
-            var out = "<center><table>"
-            var counter = 0
-
-            for (i = 0; i < 5; i++) {
-
-                out += "<tr>"
-
-                for (j = 0; j < 5; j++) {
-                    out += "<td>" + tabelle[counter++] + "</td>"
-                }
-
-                out += "</tr>"
-            }
-
-            out += "</table></center>"
-
-            replaceLabel(out)
-
-        }
-
         genBingo()
+        document.getElementById("refreshButton").onclick = genBingo;
 
     </script>
 
