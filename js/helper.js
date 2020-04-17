@@ -6,11 +6,22 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+async function typeString(labelName, delay, text) {
+
+    out = ""
+
+    for (i = 0; i < text.length; i++) {
+        out += text[i]
+        replaceLabel(labelName, out);
+        await sleep(delay);
+    }
+}
+
 async function replaceLoop(labelName, delay, array) {
 
     while (true) {
         for (i = 0; i < array.length; i++) {
-            replaceLabel(labelName, "<h1>" + array[i] + "</h1>");
+            replaceLabel(labelName, array[i]);
             await sleep(delay);
         }
     }
